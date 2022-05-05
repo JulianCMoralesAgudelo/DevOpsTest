@@ -1,0 +1,21 @@
+# Construir contenedor
+docker build -t devopstest .
+
+# Correr contenedor
+docker run -it -p 5000:5000 -d devopstest
+
+# Detener contenedor
+docker stop $(docker ps -a -q)
+
+# Exportar contenedor
+docker export devopstest | gzip > /mnt/Datos/Desarrollo/Repositorios/DevOpsTest/devOpsTest.gz
+
+# Eliminar contenedor
+docker rm $(docker ps -a -q)
+
+# Eliminar imagenes
+docker rmi $(docker images -a -q)
+
+# Eliminar contenedor detenidos
+docker rm $(docker ps -a -f status=exited -q)
+
