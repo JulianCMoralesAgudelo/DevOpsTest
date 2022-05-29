@@ -1,4 +1,4 @@
-# Construir contenedor
+# Construir imagen
 docker build -t devopstest .
 
 # Correr contenedor
